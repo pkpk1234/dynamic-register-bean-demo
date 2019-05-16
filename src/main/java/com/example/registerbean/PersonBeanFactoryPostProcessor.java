@@ -32,7 +32,8 @@ public class PersonBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
         defaultListableBeanFactory.registerBeanDefinition("personManager1", personManagerBeanDefinition);
 
         //注册bean实例
-        log.info("register personManager2>>>>>>>>>>>>>>>>");
+        log.info("register personManager2。直接通过BeanFactory注册实例将无法使用aop，因为切面作用阶段是在bean定义" +
+                "阶段，已经实例化之后再注册无法触发aop>>>>>>>>>>>>>>>>");
         PersonDao personDao = beanFactory.getBean(PersonDao.class);
         PersonManager personManager = new PersonManager();
         personManager.setPersonDao(personDao);
