@@ -54,7 +54,7 @@ public class PersonManagerRegisterController {
     }
 
     /**
-     * 调用bean personManager2，AOP切面有效
+     * 调用bean personManager2，AOP切面无效
      * curl http://localhost:8080/usePersonManager2
      * @return the string
      */
