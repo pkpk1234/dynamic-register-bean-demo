@@ -24,7 +24,7 @@ public class PersonBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
                 = (DefaultListableBeanFactory) beanFactory;
 
         //注册Bean定义，容器根据定义返回bean
-        log.info("register personManager1>>>>>>>>>>>>>>>>");
+        log.info("register personManager1 >>>>>>>>>>>>>>>>");
         BeanDefinitionBuilder beanDefinitionBuilder =
                 BeanDefinitionBuilder.genericBeanDefinition(PersonManager.class);
         beanDefinitionBuilder.addPropertyReference("personDao", "personDao");
@@ -33,7 +33,7 @@ public class PersonBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
 
         //注册bean实例
         log.info("register personManager2。直接通过BeanFactory注册实例将无法使用aop，因为切面作用阶段是在bean定义" +
-                "阶段，已经实例化之后再注册无法触发aop>>>>>>>>>>>>>>>>");
+                "阶段，已经实例化之后再注册无法触发aop >>>>>>>>>>>>>>>>");
         PersonDao personDao = beanFactory.getBean(PersonDao.class);
         PersonManager personManager = new PersonManager();
         personManager.setPersonDao(personDao);
